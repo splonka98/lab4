@@ -1,17 +1,18 @@
-﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Shoping.Models;
+using Shoping.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Solution.Data;
 
-namespace Solution
+namespace Shoping
 {
     public class Startup
     {
@@ -26,9 +27,8 @@ namespace Solution
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
-            services.AddDbContext<SolutionContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("SolutionContext")));
+            services.AddDbContext<ShopingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ShopingDatabase")));
+            services.AddTransient<IShopingRepository, ShopingRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +55,7 @@ namespace Solution
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Shoping}/{action=Index}/{id?}");
             });
         }
     }
