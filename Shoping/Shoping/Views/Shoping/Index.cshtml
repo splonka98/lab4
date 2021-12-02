@@ -37,11 +37,17 @@
             
             
             <td>
+<<<<<<< HEAD
                 @Html.ActionLink("Kupione", "Bought", new { id = item.ProductId }) |
 
                 @Html.ActionLink("Edytuj", "Edit", new { id = item.ProductId }) |
                 @Html.ActionLink("Uwagi", "Details", new { id = item.ProductId }) |
                 @Html.ActionLink("Usuń", "Delete", new { id = item.ProductId })
+=======
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+>>>>>>> 8dbd5308708360f24b0600f82a4b4ff28512741b
             </td>
         </tr>
 }

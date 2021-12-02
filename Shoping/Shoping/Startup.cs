@@ -27,8 +27,11 @@ namespace Shoping
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+<<<<<<< HEAD:Shoping/Shoping/Startup.cs
             services.AddDbContext<ShopingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ShopingDatabase")));
             services.AddTransient<IShopingRepository, ShopingRepository>();
+=======
+>>>>>>> 8dbd5308708360f24b0600f82a4b4ff28512741b:Solution/Startup.cs
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
